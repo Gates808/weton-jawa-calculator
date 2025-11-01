@@ -12,11 +12,9 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kalkulator Weton Jawa — GATES</title>
-<!-- Visible attribution meta -->
 <meta name="author" content="GATES">
 <meta name="copyright" content="GATES 2025">
 <style>
-/* (styles kept similar to your theme) */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 body{margin:10;font-family:'Roboto',sans-serif;background:#2c5364;color:#fff;display:flex;justify-content:center;align-items:center;height:auto;}
 #calculator-container{width:95%;max-width:420px;padding:20px;background:linear-gradient(145deg,#2e3b4e,#1e2a38);border-radius:20px;box-shadow:0 8px 20px rgba(0,0,0,0.5);position:relative;overflow:hidden;}
@@ -26,31 +24,8 @@ select{flex:1;padding:12px;border:none;border-radius:12px;background:linear-grad
 button{flex:1;padding:14px;border:none;border-radius:14px;font-size:0.9rem;font-weight:bold;text-transform:uppercase;cursor:pointer;transition:0.2s;background:linear-gradient(145deg,#ff6b6b,#ff4757);color:#fff;box-shadow:0 5px 10px rgba(0,0,0,0.4);}
 button:hover{transform:translateY(-2px);box-shadow:0 7px 14px rgba(0,0,0,0.5);}
 #output{margin-top:8px;padding:15px;border-radius:14px;background:linear-gradient(145deg,#1e2a38,#2e3b4e);font-size:0.9rem;color:#00eaff;white-space:pre-wrap;overflow-y:auto;overflow-x:auto;min-height:180px;box-shadow:inset 2px 2px 6px rgba(0,0,0,0.4),inset -2px -2px 6px rgba(255,255,255,0.05);}
-
-/* VISIBLE WATERMARK - prominent but stylish */
-.watermark {
-  position: absolute;
-  pointer-events: none; /* tidak mengganggu klik */
-  right: -30px;
-  bottom: -30px;
-  transform: rotate(-25deg);
-  font-size: 72px;
-  font-weight: 900;
-  color: rgba(255,255,255,0.06);
-  letter-spacing: 6px;
-  user-select: none;
-  mix-blend-mode: screen;
-}
-
-/* small footer attribution */
-.footer-attr {
-  position: absolute;
-  left: 12px;
-  bottom: 10px;
-  font-size: 10px;
-  color: rgba(255,255,255,0.45);
-  user-select: none;
-}
+.watermark { position: absolute; pointer-events: none; right: -30px; bottom: -30px; transform: rotate(-25deg); font-size: 72px; font-weight: 900; color: rgba(255,255,255,0.06); letter-spacing: 6px; user-select: none; mix-blend-mode: screen; }
+.footer-attr { position: absolute; left: 12px; bottom: 10px; font-size: 10px; color: rgba(255,255,255,0.45); user-select: none; }
 </style>
 </head>
 <body>
@@ -119,7 +94,7 @@ button:hover{transform:translateY(-2px);box-shadow:0 7px 14px rgba(0,0,0,0.5);}
 
 const output = document.getElementById("output");
 
-// Simple weton calc (same as before)
+// Simple weton calc
 function hitungWeton() {
   const h1 = parseInt(document.getElementById("hari1").value || 0);
   const p1 = parseInt(document.getElementById("pasaran1").value || 0);
@@ -167,18 +142,17 @@ document.getElementById("calculate").addEventListener("click", hitungWeton);
 document.getElementById("reset").addEventListener("click", resetForm);
 
 /* ORIGIN CHECK — memberi peringatan jika file di-embed di domain lain.
-   Ini bukan pencegah sempurna, tetapi berguna sebagai deterrent. */
+   Disesuaikan untuk GitHub Pages gates808.github.io */
 (function originCheck(){
   try {
     const allowed = [
-      "yourdomain.com",        // ganti dengan domainmu
-      "www.yourdomain.com",
-      "localhost"
+      "gates808.github.io",
+      "localhost",
+      "127.0.0.1"
     ];
     const host = location.hostname;
     if (!allowed.includes(host)) {
       console.warn("⚠️ Perhatian: script ini dijalankan di domain:", host);
-      // tampilkan jejak visual kecil (tidak tersembunyi)
       const note = document.createElement('div');
       note.style.position = 'fixed';
       note.style.left = '10px';
@@ -196,4 +170,4 @@ document.getElementById("reset").addEventListener("click", resetForm);
 })();
 </script>
 </body>
-      </html>
+</html>
